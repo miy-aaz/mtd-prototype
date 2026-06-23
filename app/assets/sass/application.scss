@@ -14,3 +14,11 @@ $govuk-font-family: 'Inter', sans-serif;
       font-feature-settings: 'tnum' 1, 'ss01' 1, 'zero' 1;
   } 
 
+.govuk-header__link .govuk-header__logotype{
+  height: 30px;
+}
+
+.govuk-header__link:focus .govuk-header__logotype{
+  content: url(/app/assets/images/department-for-education_white.png);
+  height: 30px;
+}

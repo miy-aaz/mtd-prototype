@@ -4,7 +4,14 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{# DfE Header Rebrand - Override header block to use GOV.UK header with DfE logo #}
+{# Use the default header provided by the govuk-branded layout (#
+   this layout extends `govuk-branded.njk` which renders the GOV.UK header
+   when no `header` block is overridden. #}
+
 {% block scripts %}
     {{ super() }}
     <script src="/assets/js/dfefrontend.min.js"></script>
+    <html class="govuk-template--rebranded"></html>
 {% endblock %}
