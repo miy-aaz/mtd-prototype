@@ -6,4 +6,11 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+// WAC journey — file upload → data validation → confirmation
+router.post('/wac/choose-file', (req, res) => {
+  res.redirect('/wac/data-validation')
+})
+
+router.post('/wac/data-validation', (req, res) => {
+  res.redirect('/wac/confirmation')
+})

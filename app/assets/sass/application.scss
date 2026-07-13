@@ -4,6 +4,224 @@
 // 
 
 // Add extra styles here
+
+
+.account-info {
+  text-align: right;
+  padding: 1em 0 0 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.name {
+  padding-right: 10px;
+}
+
+
+// === MTD Submission cards (dark blue) ===
+
+.mtd-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.mtd-card {
+  display: block;
+  border: 1px solid #b1b4b6;
+  text-decoration: none;
+  color: inherit;
+
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: inset 0 0 0 2px #0b0c0c;
+  }
+
+  &:focus {
+    outline: 3px solid #ffdd00;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 2px #0b0c0c;
+  }
+
+  &__header {
+    padding: 20px;
+    min-height: 110px;
+  }
+
+  &__acronym {
+    display: block;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  &__name {
+    display: block;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  &__status {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__footer {
+    padding: 12px 20px;
+    font-size:16px;
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+  }
+}
+
+.mtd-card--submit {
+  .mtd-card__header {
+    background-color: #1D70B8;
+    color: #ffffff;
+  }
+
+  .mtd-card__acronym {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .mtd-card__name {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .mtd-card__status {
+    background-color: #00703c;
+    color: #ffffff;
+  }
+}
+
+.mtd-card--report {
+  .mtd-card__header {
+    background-color: #f3f2f1;
+    min-height: 110px;
+  }
+
+  .mtd-card__acronym {
+    color: #1d70b8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .mtd-card__name {
+    color: #1d70b8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+// === Prototype scenario panel ===
+
+.proto-panel {
+  position: fixed;
+  bottom: 0;
+  right: 24px;
+  z-index: 9999;
+  width: 280px;
+  font-family: inherit;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: #0b0c0c;
+    color: #ffffff;
+    border: 0;
+    border-top: 3px solid #1d70b8;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+
+    &:hover {
+      background: #262626;
+    }
+
+    &:focus {
+      outline: 3px solid #ffdd00;
+      outline-offset: 0;
+    }
+  }
+
+  &__body {
+    background: #0b0c0c;
+    padding: 16px;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b1b4b6;
+    margin: 0 0 14px;
+  }
+
+  &__scenario {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #262626;
+
+    &:first-of-type {
+      border-top: 1px solid #262626;
+    }
+  }
+
+  &__checkbox {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+    accent-color: #1d70b8;
+  }
+
+  &__label {
+    font-size: 13px;
+    line-height: 1.4;
+    cursor: pointer;
+    color: #ffffff;
+
+    small {
+      display: block;
+      color: #b1b4b6;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+  }
+
+  &__empty {
+    color: #b1b4b6;
+    font-size: 13px;
+    margin: 0;
+    font-style: italic;
+  }
+}
+
 @import 'node_modules/dfe-frontend/packages/dfefrontend';
 @import url('https://rsms.me/inter/inter.css');
 $govuk-font-family: 'Inter', sans-serif;

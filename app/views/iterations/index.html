@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}Iterations – {{ serviceName }}{% endblock %}
+
+{% set iterations = [
+  {
+    title: "Iteration 0",
+    date: "13 July 2026",
+    summary: "Submissions page: weekly enrolment data table with submitted/missed/open status.",
+    href: "/iterations/iteration-0"
+  }
+] %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Iterations</h1>
+    <p class="govuk-body">A snapshot of each design iteration of the submissions page, in chronological order.</p>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+
+    {% for iteration in iterations %}
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+        <a class="govuk-link" href="{{ iteration.href }}">{{ iteration.title }}</a>
+      </h2>
+      <p class="govuk-body-s govuk-!-margin-bottom-1">{{ iteration.date }}</p>
+      <p class="govuk-body">{{ iteration.summary }}</p>
+
+      {% if not loop.last %}
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}
