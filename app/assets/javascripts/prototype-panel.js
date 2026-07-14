@@ -55,7 +55,26 @@
       toggleBtn.setAttribute('aria-expanded', String(!isOpen));
     });
 
+    initIterationSelect(panel);
     applyScenarios();
+  }
+
+  function initIterationSelect(panel) {
+    var select = panel.querySelector('#proto-panel-iteration-select');
+    if (!select) return;
+
+    var current = window.location.pathname;
+    Array.prototype.forEach.call(select.options, function (option) {
+      if (option.value === current) {
+        option.selected = true;
+      }
+    });
+
+    select.addEventListener('change', function () {
+      if (this.value) {
+        window.location.href = this.value;
+      }
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {

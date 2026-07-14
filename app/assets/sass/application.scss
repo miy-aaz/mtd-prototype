@@ -176,7 +176,37 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #b1b4b6;
-    margin: 0 0 14px;
+    margin: 20px 0 14px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__field {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #262626;
+
+    .proto-panel__label {
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #262626;
+    color: #ffffff;
+    border: 1px solid #b1b4b6;
+
+    &:focus {
+      outline: 3px solid #ffdd00;
+      outline-offset: 0;
+    }
   }
 
   &__scenario {

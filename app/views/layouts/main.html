@@ -13,6 +13,17 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   {# Prototype scenario panel #}
   <div class="proto-panel" id="proto-panel">
     <div class="proto-panel__body" id="proto-panel-body" hidden>
+      <p class="proto-panel__title">Iterations</p>
+      <div class="proto-panel__field">
+        <label class="proto-panel__label" for="proto-panel-iteration-select">Jump to iteration</label>
+        <select class="proto-panel__select" id="proto-panel-iteration-select">
+          <option value="">Select an iteration…</option>
+          {% for iteration in iterations %}
+            <option value="{{ iteration.href }}">{{ iteration.title }} ({{ iteration.date }})</option>
+          {% endfor %}
+        </select>
+      </div>
+
       <p class="proto-panel__title">Prototype scenarios</p>
       {% block protoScenarios %}
         <p class="proto-panel__empty">No scenarios for this page.</p>

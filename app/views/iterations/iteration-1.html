@@ -4,7 +4,6 @@
 
 {% block beforeContent %}
 
-
 <div class="account-info">
   <span class="name">Louis OREILLY UKPRN: 10000001</span>
   <a href="#" class="govuk-link">Sign out</a>
@@ -32,16 +31,18 @@
 
 <main class="govuk-main-wrapper" id="main-content" role="main">
 
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">Charles Dickens Primary</span>
-        Submissions</h1>
+      <h1 class="govuk-heading-l">Submissions</h1>
       <p class="govuk-body">Your school must submit enrolment data once a week, on the single day each week that the submission window is open.</p>
+    {{ govukButton({
+      text: "Make a submission"
+    }) }}   
 
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--xl">
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
 
 
 
       <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Your submissions</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Week</th>
