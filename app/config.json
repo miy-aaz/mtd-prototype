@@ -1,5 +1,5 @@
 {
-  "serviceName": "More Timely Data",
+  "serviceName": "Submit Enrolment Data",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {

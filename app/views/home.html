@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}Submit Enrolment Data – {{ serviceName }}{% endblock %}
+
+{% block beforeContent %}
+<div class="account-info">
+  <span class="name">Louis OREILLY UKPRN: 10000001</span>
+  <a href="#" class="govuk-link">Sign out</a>
+</div>
+{% endblock %}
+
+{% block protoScenarios %}
+  <div class="proto-panel__scenario">
+    <input class="proto-panel__checkbox" type="checkbox" id="toggle-file-uploaded" data-scenario="file-uploaded">
+    <label class="proto-panel__label" for="toggle-file-uploaded">
+      Submission already made this week
+      <small>Shows who has submitted and when</small>
+    </label>
+  </div>
+  <div class="proto-panel__scenario">
+    <input class="proto-panel__checkbox" type="checkbox" id="toggle-window-closed" data-scenario="window-closed">
+    <label class="proto-panel__label" for="toggle-window-closed">
+      Submission window closed
+      <small>Shows the closed-window notice</small>
+    </label>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <h1 class="govuk-heading-l">Submissions</h1>
+      <p class="govuk-body">Your school must submit enrolment data once a week, on the single day each week that the submission window is open.</p>
+
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">
+
+
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Your submissions</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Week</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Students</th>
+            <th scope="col" class="govuk-table__header">Submitted by</th>
+            <th scope="col" class="govuk-table__header">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">7 September 2026</td>
+            <td class="govuk-table__cell">
+              <span data-show-when="file-uploaded" hidden>
+                {{ govukTag({ text: "Submitted", classes: "govuk-tag--blue" }) }}
+              </span>
+              <span data-hide-when="file-uploaded">
+                <span data-show-when="window-closed" hidden>
+                  {{ govukTag({ text: "Missed", classes: "govuk-tag--red" }) }}
+                </span>
+                <span data-hide-when="window-closed">
+                  {{ govukTag({ text: "Open", classes: "govuk-tag--green" }) }}<br>
+                </span>
+              </span>
+            </td>
+            <td class="govuk-table__cell">
+              <span data-show-when="file-uploaded" hidden>138</span>
+              <span data-hide-when="file-uploaded">&ndash;</span>
+            </td>
+            <td class="govuk-table__cell">
+              <span data-show-when="file-uploaded" hidden>Louis OREILLY</span>
+              <span data-hide-when="file-uploaded">&ndash;</span>
+            </td>
+            <td class="govuk-table__cell">
+              <span data-show-when="file-uploaded" hidden>
+                <a href="#" class="govuk-link">Download XML</a>
+              </span>
+              <span data-hide-when="file-uploaded">
+                <span data-show-when="window-closed" hidden>Contact your data team</span>
+                <span data-hide-when="window-closed">
+                  <a href="/wac/choose-file" class="govuk-link">Make a submission</a>
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">03 September 2026</td>
+            <td class="govuk-table__cell">{{ govukTag({ text: "Submitted", classes: "govuk-tag--blue" }) }}</td>
+            <td class="govuk-table__cell">140</td>
+            <td class="govuk-table__cell">Louis OREILLY</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Download XML</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">27 August 2026</td>
+            <td class="govuk-table__cell">{{ govukTag({ text: "Submitted", classes: "govuk-tag--blue" }) }}</td>
+            <td class="govuk-table__cell">141</td>
+            <td class="govuk-table__cell">Louis OREILLY</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Download XML</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">20 August 2026</td>
+            <td class="govuk-table__cell">{{ govukTag({ text: "Submitted", classes: "govuk-tag--blue" }) }}</td>
+            <td class="govuk-table__cell">145</td>
+            <td class="govuk-table__cell">Louis OREILLY</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Download XML</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">13 August 2026</td>
+            <td class="govuk-table__cell">{{ govukTag({ text: "Submitted", classes: "govuk-tag--blue" }) }}</td>
+            <td class="govuk-table__cell">150</td>
+            <td class="govuk-table__cell">Louis OREILLY</td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Download XML</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+</main>
+{% endblock %}

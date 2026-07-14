@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}Choose file to upload – {{ serviceName }}{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/home"
+  }) }}
+{% endblock %}
+
+{% block protoScenarios %}
+  <div class="proto-panel__scenario">
+    <input class="proto-panel__checkbox" type="checkbox" id="toggle-file-uploaded" data-scenario="file-uploaded">
+    <label class="proto-panel__label" for="toggle-file-uploaded">
+      File already uploaded this week
+      <small>Shows a previously submitted file notice</small>
+    </label>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Choose File to Upload
+      <span class="govuk-caption-xl">Week commencing 03 September 2026</span>
+    </h1>
+    
+    <p class="govuk-body">Before uploading your file you should make sure that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>It's an XML or ZIP format</li>
+      <li>the data it contains is as complete as possible</li>
+      <li>the data it contains is as accurate as possible</li>
+    </ul>
+
+    {# Default state: no file uploaded yet #}
+    <div data-hide-when="file-uploaded">
+
+      {{ govukFileUpload({
+        id: "wac-file",
+        name: "wacFile",
+        label: {
+          text: "Select a file to upload",
+          classes: "govuk-label--s"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Upload file",
+        href: "/wac/data-validation"
+      }) }}
+
+    </div>
+
+    {# Alternate state: file already uploaded this week #}
+    <div data-show-when="file-uploaded" hidden>
+
+      {{ govukInsetText({
+        html: "<p class=\"govuk-body\">You have already submitted a file for this period:</p>
+               <p class=\"govuk-body\"><strong>WAC_Enrolments_Week35_2026.xml</strong><br>
+               Submitted on 3 September 2026 at 09:14am</p>"
+      }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Upload a replacement file</span>
+        </summary>
+        <div class="govuk-details__text">
+          {{ govukFileUpload({
+            id: "wac-file-replace",
+            name: "wacFileReplace",
+            label: {
+              text: "Select a replacement file",
+              classes: "govuk-label--s"
+            }
+          }) }}
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/wac/data-validation"
+      }) }}
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
